@@ -3,7 +3,10 @@ import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/zariya_ecommerce/', // Configured for GitHub Pages deployment
+  // Use '/' on Vercel or local development, and '/zariya_ecommerce/' on GitHub Pages
+  base: process.env.VERCEL || process.env.NODE_ENV !== 'production'
+    ? '/' 
+    : '/zariya_ecommerce/',
   plugins: [react()],
   server: {
     port: 3000,
