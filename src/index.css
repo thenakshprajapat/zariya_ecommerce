@@ -558,7 +558,7 @@ a {
 }
 
 .logo-circle-emblem {
-  border-radius: 50%;
+  border-radius: 10px;
   background: radial-gradient(circle at 35% 35%, var(--teal-light), var(--teal-brand));
   display: flex;
   align-items: center;
@@ -1610,8 +1610,10 @@ a {
   .footer-bottom-bar {
     flex-direction: column;
     text-align: center;
+    padding-bottom: 70px; /* Safe space for the fixed floating IG pill */
   }
 }
+
 
 .footer-creator-signature {
   font-size: 1rem;
