@@ -3,6 +3,9 @@ import { products, Product } from '../data/products';
 import { ProductCard } from './ProductCard';
 import { Sparkles, Search } from 'lucide-react';
 
+import { BookOpen, Download } from 'lucide-react';
+import { getAssetUrl } from '../data/brandConfig';
+
 interface ProductShowcaseProps {
   onQuickView: (product: Product) => void;
   savedProducts: Product[];
@@ -53,7 +56,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
         </div>
 
         {/* Search Bar */}
-        <div style={{ maxWidth: '640px', margin: '0 auto 32px auto', width: '100%' }}>
+        <div style={{ maxWidth: '640px', margin: '0 auto 24px auto', width: '100%' }}>
           <div style={{ position: 'relative' }}>
             <input
               type="text"
@@ -76,8 +79,61 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
           </div>
         </div>
 
+        {/* PDF Catalogue Download Banner */}
+        <div
+          style={{
+            background: 'linear-gradient(135deg, var(--teal-subtle) 0%, rgba(22, 91, 102, 0.03) 100%)',
+            border: '1px solid rgba(22, 91, 102, 0.15)',
+            borderRadius: 'var(--radius-md)',
+            padding: '16px 20px',
+            marginBottom: '32px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '16px'
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <div
+              style={{
+                width: '40px',
+                height: '40px',
+                borderRadius: '50%',
+                backgroundColor: 'var(--teal-brand)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#FFF',
+                flexShrink: 0
+              }}
+            >
+              <BookOpen size={18} />
+            </div>
+            <div>
+              <h4 style={{ fontSize: '0.925rem', fontWeight: 700, color: 'var(--teal-dark)', margin: 0 }}>
+                Looking for our full catalog?
+              </h4>
+              <p style={{ fontSize: '0.8rem', color: 'var(--text-body)', margin: '2px 0 0 0' }}>
+                Download our offline studio catalog containing all 50+ premium designs and colorways.
+              </p>
+            </div>
+          </div>
+          <a
+            href={getAssetUrl('/zariya_catalogue.pdf')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-secondary btn-sm"
+            style={{ borderColor: 'var(--teal-brand)', color: 'var(--teal-brand)', backgroundColor: '#FFF' }}
+          >
+            <Download size={14} />
+            <span>Download Catalog (PDF)</span>
+          </a>
+        </div>
+
         {/* Product Cards Grid */}
         {filteredProducts.length > 0 ? (
+
           <div className="products-grid">
             {filteredProducts.map((prod) => (
               <ProductCard

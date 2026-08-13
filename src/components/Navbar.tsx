@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Logo } from './Logo';
-import { brandConfig } from '../data/brandConfig';
+import { brandConfig, getAssetUrl } from '../data/brandConfig';
 import { Menu, X, Bookmark, Sparkles } from 'lucide-react';
 import { InstagramIcon } from './InstagramIcon';
 
@@ -51,7 +51,17 @@ export const Navbar: React.FC<NavbarProps> = ({
               >
                 Policy
               </button>
+              <a
+                href={getAssetUrl('/zariya_catalogue.pdf')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-link"
+                style={{ color: 'var(--teal-brand)', fontWeight: 600 }}
+              >
+                Catalogue
+              </a>
             </nav>
+
 
             {/* Actions: Desktop vs Mobile */}
             <div className="nav-actions">
@@ -148,6 +158,17 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <span>Order & Cancellation Policy</span>
                   <span style={{ fontSize: '0.725rem', background: '#FFF0D6', color: 'var(--gold-dark)', padding: '2px 8px', borderRadius: '4px' }}>Strict</span>
                 </button>
+                <a
+                  href={getAssetUrl('/zariya_catalogue.pdf')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mobile-drawer-link"
+                  onClick={closeMobile}
+                  style={{ borderBottom: '1px solid var(--border-light)' }}
+                >
+                  <span>Studio Catalogue (PDF)</span>
+                  <span style={{ fontSize: '0.725rem', background: 'var(--teal-subtle)', color: 'var(--teal-brand)', padding: '2px 8px', borderRadius: '4px' }}>14 MB</span>
+                </a>
               </div>
             </div>
 
